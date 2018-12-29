@@ -1,35 +1,98 @@
-import { TokenisedExpression } from '../../src/models/TokenisedExpression';
-
 export interface MockExpression {
-  expression: string;
+  description: string;
+  infixExpression: string;
+  postfixExpression: string;
   answer: number;
-  tokenisedExpression: TokenisedExpression;
+
 }
 
 // mock expressions used to test the tokeniser and the calculator
 export const mockExpressions: MockExpression[] = [
   {
-    expression: '1+1',
+    description: 'Handles basic addition',
+    infixExpression: '1 + 1',
+    postfixExpression: '1 1 +',
     answer: 2,
-    tokenisedExpression: {
-      operators: ['+'],
-      numbers: [1, 1]
-    }
   },
+  {
+    description: 'Handles addition and subtraction',
+    infixExpression: '1 + 2 - 4',
+    postfixExpression: '1 2 + 4 -',
+    answer: -1,
+  },
+  {
+    description: 'Handles addition and multiplication',
+    infixExpression: '1 + 2 * 4',
+    postfixExpression: '1 2 4 * +',
+    answer: 9,
+  },
+  {
+    description: 'Handles addition and division',
+    infixExpression: '1 / 2 + 4',
+    postfixExpression: '1 2 / 4 +',
+    answer: 4.5
+  },
+  {
+    description: 'Handles powers',
+    infixExpression: '10 ^ 6',
+    postfixExpression: '10 6 ^',
+    answer: 1000000
+  },
+  {
+    description: 'Handles brackets',
+    infixExpression: '(2 / 4)',
+    postfixExpression: '2 4 /',
+    answer: 0.5
+  },
+  {
+    description: 'Handles precedence without brackets',
+    infixExpression: '1 + 2 / 4',
+    postfixExpression: '1 2 4 / +',
+    answer: 1.5
+  },
+  {
+    description: 'Handles brackets and precedence',
+    infixExpression: '1 + (2 / 4)',
+    postfixExpression: '1 2 4 / +',
+    answer: 1.5
+  },
+  {
+    description: 'Handles decimal numbers',
+    infixExpression: '1.5 + 2',
+    postfixExpression: '1.5 2 +',
+    answer: 3.5
+  },
+  {
+    description: 'Handles negative numbers',
+    infixExpression: '1 + -2',
+    postfixExpression: '1 -2 +',
+    answer: -1
+  },
+  {
+    description: 'Handles negative numbers at first index',
+    infixExpression: '-1 + 2',
+    postfixExpression: '-1 2 +',
+    answer: 1
+  },
+  {
+    description: 'Handles multiple negative numbers',
+    infixExpression: '-1 - -2',
+    postfixExpression: '-1 -2 -',
+    answer: 1
+  },
+  // Constants
   // {
-  //   expression: '0.1+0.2',
+  //   expression: '1 + PI',
+  //   answer: 4.141592653589793
+  // },
+  // Helper functions
+  // {
+  //   expression: '1 + SUM(1,2,3,4)',
+  //   answer: 11
+  // },
+    // Deal with js issues ( * n)
+  // {
+  //   expression: '0.1 + 0.2',
   //   answer: 0.3
   // },
-  {
-    expression: '1 + 2 - 4',
-    answer: -1,
-    tokenisedExpression: {
-      operators: ['+', '-'],
-      numbers: [1, 2, 4]
-    }
-  },
-  // {
-  //   expression: '  1 + 2 / 4',
-  //   answer: 1.5
-  // }
 ];

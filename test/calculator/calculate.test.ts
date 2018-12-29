@@ -1,14 +1,12 @@
 import { calculate } from '../../src/calculator';
-import { tokenise } from '../../src/tokeniser';
+import { convertInfixToPostfix } from '../../src/converter';
 import { mockExpressions, MockExpression } from '../mocks';
-import { printFailingExpression } from '../helpers';
 
 describe('calculate', () => {
-  it('should calculate the correct answers', () => {
-    mockExpressions.map(({ expression, answer }: MockExpression) => {
-      const tokenisedExpression = tokenise(expression);
+  mockExpressions.map(({ description, infixExpression, answer }: MockExpression) => {
+    it(description, () => {
+      const tokenisedExpression = convertInfixToPostfix(infixExpression);
       const calculatedAnswer = calculate(tokenisedExpression);
-      if (calculatedAnswer !== answer) printFailingExpression(expression);
       expect(calculatedAnswer).toEqual(answer);
     });
   });

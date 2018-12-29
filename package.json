@@ -2,13 +2,16 @@
   "name": "arithmio",
   "version": "0.0.1",
   "description": "Math expression parser and calculator",
-  "main": "src/index.ts",
+  "main": "./dist/src/index.js",
+  "types": "./dist/src/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "start": "ts-node src/index.ts",
-    "start:watch": "nodemon --watch './**/*.ts' --exec 'ts-node' src/index.ts",
     "test": "jest",
     "test:watch": "jest --watchAll",
-    "build": "tsc"
+    "build": "tsc",
+    "prepublish": "npm run test && npm run build && npm publish"
   },
   "author": "Joe Maidman",
   "license": "ISC",
@@ -22,6 +25,5 @@
     "tslint": "^5.11.0",
     "tslint-config-airbnb": "^5.11.0",
     "typescript": "^3.2.2"
-  },
-  "dependencies": {}
+  }
 }

@@ -1,13 +1,20 @@
 import { getOperation } from '../Operators';
-import { TokenisedExpression } from '../models/TokenisedExpression';
+import { isOperator, isOperand } from '../utils';
 
-export const calculate = ({ operators, numbers }: TokenisedExpression): number => {
-  let answer;
-  let currentNumber = 0;
-  for (let i = 0; i < operators.length; i++) {
-    const operation = getOperation(operators[i]);
-    answer = operation(answer ? answer : numbers[0], numbers[currentNumber + 1]);
-    currentNumber++;
-  }
-  return answer;
+export const calculate = (postfixExpression: string): number => {
+
+  const operandStack: number[] = [];
+
+  postfixExpression.split(' ').map((item) => {
+    if (isOperand(item.toString())) {
+      operandStack.push(+item);
+    } else if (isOperator(item.toString())) {
+      const operandTwo = operandStack.pop();
+      const operandOne = operandStack.pop();
+      operandStack.push(getOperation(item.toString())(operandOne, operandTwo));
+    }
+  });
+
+  // The answer is the only element left in the array
+  return operandStack.pop();
 };
