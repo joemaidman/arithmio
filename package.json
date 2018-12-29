@@ -1,6 +1,6 @@
 {
   "name": "arithmio",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Math expression parser and calculator",
   "main": "./dist/src/index.js",
   "types": "./dist/src/index.d.ts",
@@ -11,7 +11,7 @@
     "test": "jest",
     "test:watch": "jest --watchAll",
     "build": "tsc",
-    "prepublish": "npm run test && npm run build && npm publish"
+    "prepublishOnly": "npm run test && npm run build"
   },
   "author": "Joe Maidman",
   "license": "ISC",

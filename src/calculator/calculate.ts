@@ -1,4 +1,4 @@
-import { getOperation } from '../Operators';
+import { getOperation } from '../operators';
 import { isOperator, isOperand } from '../utils';
 
 export const calculate = (postfixExpression: string): number => {

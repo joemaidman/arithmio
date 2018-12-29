@@ -1,5 +1,5 @@
 import { removeWhiteSpace, isOperator, isOperand, isLeftParen, isRightParen } from '../utils';
-import { getOperatorPrecedence } from '../Operators';
+import { getOperatorPrecedence } from '../operators';
 
 const DECIMAL_SYMBOL = '.';
 
