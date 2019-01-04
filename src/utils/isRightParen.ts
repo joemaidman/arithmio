@@ -1,1 +1,1 @@
-export const isRightParen = (char: string) => char === ')';
+export const isRightParen = (char: string): boolean => char === ')';

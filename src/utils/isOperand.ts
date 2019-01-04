@@ -1,1 +1,1 @@
-export const isOperand = (string: string) => !isNaN(+string);
+export const isOperand = (string: string): boolean => !isNaN(+string);

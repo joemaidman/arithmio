@@ -1,4 +1,4 @@
-import { sqrt } from '../../src/arithmetic/sqrt';
+import { sqrt } from '../../src/helpers/sqrt';
 
 describe('sqrt', () => {
   it('should return the square root of a number', () => {

@@ -80,11 +80,12 @@ export const mockExpressions: MockExpression[] = [
     postfixExpression: '-1 -2 -',
     answer: 1
   },
-  // Constants
-  // {
-  //   expression: '1 + PI',
-  //   answer: 4.141592653589793
-  // },
+  {
+    description: 'Handles constants',
+    infixExpression: '1 + PI',
+    postfixExpression: '1 3.141592653589793 +',
+    answer: 4.141592653589793
+  }
   // Helper functions
   // {
   //   expression: '1 + SUM(1,2,3,4)',
