@@ -20,7 +20,7 @@ Converts [infix](https://en.wikipedia.org/wiki/Infix_notation) to [postfix](http
 
     $ npm install arithmio
 
-or as a RESTful API at [x]().
+or as a RESTful API at [https://arithmio.herokuapp.com/](https://arithmio.herokuapp.com/).
 
 ## Usage
 <b>```evaluate(infixExpression: string): number```</b>

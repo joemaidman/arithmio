@@ -6,3 +6,4 @@ export * from './isRightParen';
 export * from './isAlphaChar';
 export * from './isConstant';
 export * from './isHelper';
+export * from './round';

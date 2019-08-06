@@ -1,5 +1,5 @@
 export enum helpers {
-  SUM = 'SUM',
+  ABS = 'ABS',
   SQRT = 'SQRT',
   LOG = 'LOG'
 }

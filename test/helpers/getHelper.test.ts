@@ -1,10 +1,10 @@
 import { getHelper } from '../../src/helpers';
-import { sum } from '../../src/helpers/sum';
+import { abs } from '../../src/helpers/abs';
 
 describe('getHelper', () => {
-  describe(`WHEN passed 'SUM'`, () => {
+  describe(`WHEN passed 'ABS'`, () => {
     it(`THEN it returns the correct function`, () => {
-      expect(getHelper('SUM')).toEqual(sum);
+      expect(getHelper('ABS')).toEqual(abs);
     });
   });
   describe(`WHEN passed an unknown identifier`, () => {

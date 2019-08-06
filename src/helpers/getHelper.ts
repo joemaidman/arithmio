@@ -1,4 +1,3 @@
-import { sum } from './sum';
 import { abs } from './abs';
 import { sqrt } from './sqrt';
 import { log } from './log';
@@ -10,7 +9,6 @@ export const getHelper = (helper: string): Function => {
 };
 
 const helperMap: { [key:string]:Function; } = {
-  'SUM': sum,
   'ABS': abs,
   'SQRT': sqrt,
   'LOG': log

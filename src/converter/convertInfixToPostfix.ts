@@ -3,6 +3,7 @@ import { getOperatorPrecedence } from '../operators';
 import { isAlphaChar } from '../utils/isAlphaChar';
 import { getConstant } from '../constants';
 import { getHelper } from '../helpers';
+import { calculate } from '../calculator';
 
 const DECIMAL_SYMBOL = '.';
 
@@ -61,7 +62,9 @@ export const convertInfixToPostfix = (expression: string): string => {
       }
       operatorStack.push(char);
       if (isOperator(characters[index + 1]) && isOperator(characters[index + 2])) {
-        throw Error(`Invalid expression. Operator '${characters[index + 2]}' passed at illegal position ${index + 2}`);
+        throw Error(
+          `Invalid expression. Operator '${characters[index + 2]}' passed at illegal position ${index + 2}`
+          );
       }
       if (isOperator(characters[index + 1])) {
         nextPassNumberSign = characters[index + 1];
@@ -81,7 +84,21 @@ export const convertInfixToPostfix = (expression: string): string => {
         postfixExpression.push(getConstant(word));
       } else if (isHelper(word)) {
         const helperFunction = getHelper(word);
-
+        // skip the left paren
+        skip++;
+        j++;
+        let nestedInfixExpression = '';
+        while (!isRightParen(characters[j])) {
+          nestedInfixExpression = nestedInfixExpression + characters[j];
+          skip++;
+          j++;
+        }
+        const nestedPostfixExpression = convertInfixToPostfix(nestedInfixExpression);
+        const nestedValue = calculate(nestedPostfixExpression);
+        const helperAnswer = helperFunction(nestedValue);
+        postfixExpression.push(+helperAnswer);
+        // skip the right paren
+        skip++;
       } else {
         throw Error(`Invalid expression. Invalid identifier: ${word}`);
       }
