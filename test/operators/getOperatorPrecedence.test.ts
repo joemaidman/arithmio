@@ -1,4 +1,4 @@
-import { getOperatorPrecedence } from '../../src/Operators';
+import { getOperatorPrecedence } from '../../src/operators';
 
 describe('getOperatorPrecedence', () => {
   describe(`WHEN passed '+'`, () => {

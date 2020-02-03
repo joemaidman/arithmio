@@ -1,9 +1,9 @@
-import { getOperation } from '../../src/Operators';
-import { add } from '../../src/Operators/add';
-import { subtract } from '../../src/Operators/subtract';
-import { divide } from '../../src/Operators/divide';
-import { multiply } from '../../src/Operators/multiply';
-import { power } from '../../src/Operators/power';
+import { getOperation } from '../../src/operators';
+import { add } from '../../src/operators/add';
+import { subtract } from '../../src/operators/subtract';
+import { divide } from '../../src/operators/divide';
+import { multiply } from '../../src/operators/multiply';
+import { power } from '../../src/operators/power';
 
 describe('getOperation', () => {
   describe(`WHEN passed '+'`, () => {

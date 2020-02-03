@@ -1,6 +1,4 @@
 import { getConstant } from '../../src/constants';
-import { pi } from '../../src/constants/pi';
-import { e } from '../../src/constants/e';
 
 describe('getConstant', () => {
   describe(`WHEN passed 'PI'`, () => {
